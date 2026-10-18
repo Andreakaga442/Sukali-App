@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.ProfilePage3"
+             Title="Zone de découverte"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="24">
+
+            <!-- Indicateur de progression -->
+            <Grid ColumnDefinitions="*,*,*" Margin="0,20,0,0">
+                <Frame Grid.Column="0" BackgroundColor="{StaticResource PrimaryColor}" CornerRadius="4" HeightRequest="4" Margin="0,0,4,0" />
+                <Frame Grid.Column="1" BackgroundColor="{StaticResource PrimaryColor}" CornerRadius="4" HeightRequest="4" Margin="4,0" />
+                <Frame Grid.Column="2" BackgroundColor="{StaticResource PrimaryColor}" CornerRadius="4" HeightRequest="4" Margin="4,0,0,0" />
+            </Grid>
+
+            <!-- Titre -->
+            <VerticalStackLayout Spacing="8" Margin="0,20,0,0">
+                <Label Text="Ta zone de découverte" Style="{StaticResource TitleLabel}" />
+                <Label Text="Où veux-tu découvrir des événements ?" Style="{StaticResource SubtitleLabel}" />
+            </VerticalStackLayout>
+
+            <!-- Position détectée -->
+            <Frame Style="{StaticResource CardFrame}">
+                <HorizontalStackLayout Spacing="12">
+                    <Image Source="location_icon.png" WidthRequest="24" HeightRequest="24" />
+                    <VerticalStackLayout>
+                        <Label Text="Position détectée" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                        <Label Text="Douala, Cameroun" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!-- Rayon de découverte -->
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Rayon de découverte" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                <Slider Minimum="5" Maximum="100" Value="20" ThumbColor="{StaticResource PrimaryColor}" />
+                <HorizontalStackLayout>
+                    <Label Text="5 km" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                    <Label Text="20 km" FontSize="12" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
+                    <Label Text="100 km" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Autres pays à suivre -->
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Autres pays à suivre" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                <Label Text="Tu peux suivre des événements dans d'autres pays"
+                       FontSize="12"
+                       TextColor="{StaticResource TextSecondaryColor}" />
+
+                <HorizontalStackLayout Spacing="12">
+                    <Frame Style="{StaticResource ChipFrame}">
+                        <HorizontalStackLayout Spacing="6">
+                            <Label Text="Cameroun" Style="{StaticResource BodyLabel}" />
+                        </HorizontalStackLayout>
+                    </Frame>
+                    <Frame Style="{StaticResource ChipFrame}">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCountryTapped" />
+                        </Frame.GestureRecognizers>
+                        <Label Text="Sénégal" Style="{StaticResource BodyLabel}" />
+                    </Frame>
+                    <Frame Style="{StaticResource ChipFrame}">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCountryTapped" />
+                        </Frame.GestureRecognizers>
+                        <Label Text="Côte d'Ivoire" Style="{StaticResource BodyLabel}" />
+                    </Frame>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Boutons -->
+            <Grid ColumnDefinitions="*,*" Margin="0,24,0,0">
+                <Button Grid.Column="0"
+                        Text="Retour"
+                        Style="{StaticResource OutlineButton}"
+                        Margin="0,0,8,0"
+                        Clicked="OnBackClicked" />
+                <Button Grid.Column="1"
+                        Text="Commencer"
+                        Style="{StaticResource PrimaryButton}"
+                        Margin="8,0,0,0"
+                        Clicked="OnStartClicked" />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

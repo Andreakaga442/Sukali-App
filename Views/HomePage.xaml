@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.HomePage"
+             Title="Accueil"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="16">
+
+            <!-- En-tête -->
+            <HorizontalStackLayout Spacing="12">
+                <Image Source="sukali_logo.png" HeightRequest="32" WidthRequest="32" Aspect="AspectFit" VerticalOptions="Center" />
+                <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                    <Label Text="Bonjour Andrea" FontSize="14" TextColor="{StaticResource TextSecondaryColor}" />
+                    <Label Text="Quoi de neuf près de toi ?" Style="{StaticResource TitleLabel}" FontSize="22" />
+                </VerticalStackLayout>
+                <Image Source="notification_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Start" />
+            </HorizontalStackLayout>
+
+            <!-- Onglets de fil -->
+            <HorizontalStackLayout Spacing="8">
+                <Frame BackgroundColor="{StaticResource HighlightColor}" CornerRadius="20" Padding="16,6">
+                    <Label Text="Pour toi" FontAttributes="Bold" TextColor="{StaticResource PrimaryColor}" FontSize="13" />
+                </Frame>
+                <Frame BackgroundColor="{StaticResource SurfaceColor}" CornerRadius="20" Padding="16,6">
+                    <Label Text="Abonnements" TextColor="{StaticResource TextSecondaryColor}" FontSize="13" />
+                </Frame>
+                <Frame BackgroundColor="{StaticResource SurfaceColor}" CornerRadius="20" Padding="16,6">
+                    <Label Text="Près de moi" TextColor="{StaticResource TextSecondaryColor}" FontSize="13" />
+                </Frame>
+            </HorizontalStackLayout>
+
+            <!-- Stories d'organisateurs -->
+            <CollectionView HeightRequest="90" ItemsSource="{Binding Stories}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout WidthRequest="64" Spacing="4">
+                            <Frame CornerRadius="32" Padding="4" BorderColor="{StaticResource PrimaryColor}" WidthRequest="64" HeightRequest="64" HorizontalOptions="Center">
+                                <Image Source="sukali_logo.png" Aspect="AspectFit" Margin="4" />
+                            </Frame>
+                            <Label Text="{Binding Name}" FontSize="11" HorizontalOptions="Center" LineBreakMode="TailTruncation" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Cartes d'événements -->
+            <CollectionView ItemsSource="{Binding Events}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="16" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Style="{StaticResource CardFrame}" Padding="0" CornerRadius="16">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnEventTapped" />
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout>
+                                <!-- Image de l'événement -->
+                                <Frame HeightRequest="160" CornerRadius="16" Padding="0" BackgroundColor="{StaticResource SurfaceColor}">
+                                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
+                                </Frame>
+
+                                <VerticalStackLayout Padding="16" Spacing="8">
+                                    <!-- Catégorie et distance -->
+                                    <HorizontalStackLayout Spacing="8">
+                                        <Frame BackgroundColor="{StaticResource HighlightColor}" CornerRadius="12" Padding="8,4">
+                                            <Label Text="{Binding Category}" FontSize="11" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" />
+                                        </Frame>
+                                        <Label Text="{Binding DistanceKm, StringFormat='{0:F0} km'}" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+
+                                    <!-- Titre -->
+                                    <Label Text="{Binding Title}" Style="{StaticResource BodyLabel}" FontAttributes="Bold" FontSize="16" />
+
+                                    <!-- Date et lieu -->
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Image Source="calendar_icon.png" WidthRequest="12" HeightRequest="12" />
+                                        <Label Text="{Binding Date, StringFormat='{0:dd MMM yyyy}'}" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Image Source="location_icon.png" WidthRequest="12" HeightRequest="12" />
+                                        <Label Text="{Binding Location}" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                                    </HorizontalStackLayout>
+
+                                    <!-- Actions -->
+                                    <HorizontalStackLayout Spacing="16" Margin="0,8,0,0">
+                                        <HorizontalStackLayout Spacing="4">
+                                            <Image Source="heart_icon.png" WidthRequest="16" HeightRequest="16" />
+                                            <Label Text="{Binding LikesCount}" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" VerticalOptions="Center" />
+                                        </HorizontalStackLayout>
+                                        <HorizontalStackLayout Spacing="4">
+                                            <Image Source="comment_icon.png" WidthRequest="16" HeightRequest="16" />
+                                            <Label Text="{Binding CommentsCount}" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" VerticalOptions="Center" />
+                                        </HorizontalStackLayout>
+                                        <Image Source="share_icon.png" WidthRequest="16" HeightRequest="16" HorizontalOptions="EndAndExpand" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

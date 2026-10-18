@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.EventDetailPage"
+             Title="Détail"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- Image principale -->
+            <Frame HeightRequest="250" CornerRadius="0" Padding="0" BackgroundColor="{StaticResource SurfaceColor}">
+                <Grid>
+                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
+                    <!-- Badge Live -->
+                    <Frame BackgroundColor="#FF1744" CornerRadius="12" Padding="8,4" Margin="16" HorizontalOptions="Start" VerticalOptions="Start">
+                        <Label Text="EN DIRECT CE SOIR" TextColor="White" FontSize="10" FontAttributes="Bold" />
+                    </Frame>
+                </Grid>
+            </Frame>
+
+            <VerticalStackLayout Spacing="16" Padding="16">
+
+                <!-- Catégorie et prix -->
+                <HorizontalStackLayout Spacing="8">
+                    <Frame BackgroundColor="{StaticResource HighlightColor}" CornerRadius="12" Padding="8,4">
+                        <Label Text="Musique" FontSize="11" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" />
+                    </Frame>
+                    <Label Text="5000 FCFA" FontSize="14" TextColor="{StaticResource SuccessColor}" FontAttributes="Bold" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <!-- Titre -->
+                <Label Text="Festival de Musique de Douala" Style="{StaticResource TitleLabel}" FontSize="24" />
+
+                <!-- Organisateur -->
+                <HorizontalStackLayout Spacing="12">
+                    <Frame CornerRadius="20" WidthRequest="40" HeightRequest="40" Padding="0" BackgroundColor="{StaticResource HighlightColor}">
+                        <Image Source="sukali_logo.png" Aspect="AspectFit" Margin="4" />
+                    </Frame>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="Organisé par" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                        <Label Text="Assoculture" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                    <Button Text="S'abonner"
+                            BackgroundColor="{StaticResource PrimaryColor}"
+                            TextColor="White"
+                            CornerRadius="16"
+                            HeightRequest="32"
+                            FontSize="12"
+                            HorizontalOptions="EndAndExpand" />
+                </HorizontalStackLayout>
+
+                <!-- Informations pratiques -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="12">
+                        <HorizontalStackLayout Spacing="12">
+                            <Image Source="calendar_icon.png" WidthRequest="20" HeightRequest="20" />
+                            <VerticalStackLayout>
+                                <Label Text="Date" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                                <Label Text="Samedi 18 Octobre 2026" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="{StaticResource BorderColor}" />
+                        <HorizontalStackLayout Spacing="12">
+                            <Image Source="clock_icon.png" WidthRequest="20" HeightRequest="20" />
+                            <VerticalStackLayout>
+                                <Label Text="Heure" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                                <Label Text="18:00 - 22:00" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="{StaticResource BorderColor}" />
+                        <HorizontalStackLayout Spacing="12">
+                            <Image Source="location_icon.png" WidthRequest="20" HeightRequest="20" />
+                            <VerticalStackLayout>
+                                <Label Text="Lieu" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                                <Label Text="Palais des Sports de Douala" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="{StaticResource BorderColor}" />
+                        <HorizontalStackLayout Spacing="12">
+                            <Image Source="capacity_icon.png" WidthRequest="20" HeightRequest="20" />
+                            <VerticalStackLayout>
+                                <Label Text="Capacité" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                                <Label Text="500 places" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Description -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="À propos" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                    <Label Text="Un festival réunissant les meilleurs artistes locaux et internationaux pour une soirée inoubliable. Au programme : concerts, ateliers, rencontres et bien plus encore."
+                           Style="{StaticResource BodyLabel}" />
+                </VerticalStackLayout>
+
+                <!-- Actions -->
+                <HorizontalStackLayout Spacing="12" Margin="0,8,0,0">
+                    <Button Text="J'aime"
+                            Style="{StaticResource OutlineButton}"
+                            HorizontalOptions="FillAndExpand"
+                            Clicked="OnLikeClicked" />
+                    <Button Text="Commenter"
+                            Style="{StaticResource OutlineButton}"
+                            HorizontalOptions="FillAndExpand"
+                            Clicked="OnCommentClicked" />
+                    <Button Text="Partager"
+                            Style="{StaticResource OutlineButton}"
+                            HorizontalOptions="FillAndExpand"
+                            Clicked="OnShareClicked" />
+                </HorizontalStackLayout>
+
+                <!-- Réserver -->
+                <Button Text="Réserver ma place"
+                        Style="{StaticResource PrimaryButton}"
+                        Margin="0,8,0,0" />
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

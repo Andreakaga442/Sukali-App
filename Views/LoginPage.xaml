@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.LoginPage"
+             Title="Connexion"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="24">
+
+            <!-- Logo et titre -->
+            <VerticalStackLayout Spacing="12" Margin="0,60,0,40" HorizontalOptions="Center">
+                <Image Source="sukali_logo.png"
+                       HeightRequest="120"
+                       WidthRequest="120"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center" />
+                <Label Text="Votre agenda social local"
+                       FontSize="16"
+                       TextColor="{StaticResource TextSecondaryColor}"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Onglets Connexion / Inscription -->
+            <Grid ColumnDefinitions="*,*" Margin="0,0,0,24">
+                <Frame Grid.Column="0"
+                       BackgroundColor="{StaticResource HighlightColor}"
+                       CornerRadius="12"
+                       Padding="12"
+                       Margin="0,0,4,0">
+                    <Label Text="Connexion"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource PrimaryColor}"
+                           HorizontalOptions="Center" />
+                </Frame>
+                <Frame Grid.Column="1"
+                       BackgroundColor="{StaticResource SurfaceColor}"
+                       CornerRadius="12"
+                       Padding="12"
+                       Margin="4,0,0,0">
+                    <Label Text="Inscription"
+                           TextColor="{StaticResource TextSecondaryColor}"
+                           HorizontalOptions="Center" />
+                </Frame>
+            </Grid>
+
+            <!-- Bouton Google -->
+            <Button Text="Continuer avec Google"
+                    BackgroundColor="White"
+                    TextColor="{StaticResource PrimaryColor}"
+                    BorderColor="{StaticResource BorderColor}"
+                    BorderWidth="1"
+                    CornerRadius="12"
+                    HeightRequest="50"
+                    Margin="0,0,0,16" />
+
+            <!-- Séparateur -->
+            <Grid ColumnDefinitions="*,Auto,*" Margin="0,0,0,16">
+                <BoxView Grid.Column="0" HeightRequest="1" BackgroundColor="{StaticResource BorderColor}" VerticalOptions="Center" />
+                <Label Grid.Column="1" Text="ou" TextColor="{StaticResource TextSecondaryColor}" Margin="12,0" />
+                <BoxView Grid.Column="2" HeightRequest="1" BackgroundColor="{StaticResource BorderColor}" VerticalOptions="Center" />
+            </Grid>
+
+            <!-- Formulaire -->
+            <Entry Placeholder="Adresse e-mail"
+                   Style="{StaticResource EntryStyle}"
+                   Keyboard="Email" />
+
+            <Grid ColumnDefinitions="*,Auto">
+                <Entry Grid.Column="0"
+                       Placeholder="Mot de passe"
+                       Style="{StaticResource EntryStyle}"
+                       IsPassword="True" />
+                <ImageButton Source="eye_icon.png"
+                              Grid.Column="1"
+                              WidthRequest="24"
+                              HeightRequest="24"
+                              VerticalOptions="Center"
+                              Margin="-40,0,0,0" />
+            </Grid>
+
+            <!-- Lien mot de passe oublié -->
+            <Label Text="Mot de passe oublié ?"
+                   TextColor="{StaticResource SecondaryColor}"
+                   FontAttributes="Bold"
+                   HorizontalOptions="End"
+                   Margin="0,8,0,16" />
+
+            <!-- Bouton connexion -->
+            <Button Text="Se connecter"
+                    Style="{StaticResource PrimaryButton}"
+                    Clicked="OnLoginClicked" />
+
+            <!-- Lien organisateur -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="4" Margin="0,16,0,0">
+                <Label Text="Vous êtes organisateur ?" Style="{StaticResource SubtitleLabel}" FontSize="13" />
+                <Label Text="Créer un compte" Style="{StaticResource BodyLabel}" FontAttributes="Bold" TextColor="{StaticResource PrimaryColor}" FontSize="13" />
+            </HorizontalStackLayout>
+
+            <!-- Conditions -->
+            <Label Text="En vous connectant, vous acceptez nos conditions d'utilisation"
+                   FontSize="12"
+                   TextColor="{StaticResource TextSecondaryColor}"
+                   HorizontalOptions="Center"
+                   Margin="0,16,0,0" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

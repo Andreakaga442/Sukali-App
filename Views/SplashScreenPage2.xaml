@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.SplashScreenPage2"
+             BackgroundColor="#FFFFFF"
+             Shell.NavBarIsVisible="False">
+
+    <Grid>
+        <!-- Fond -->
+        <BoxView BackgroundColor="#FFFFFF" />
+
+        <!-- Voiture animée -->
+        <Image x:Name="VoitureImage"
+               Source="voiture.png"
+               Aspect="AspectFit"
+               HeightRequest="200"
+               Opacity="0"
+               TranslationX="-300" />
+
+        <!-- Logo -->
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="16">
+            <Image x:Name="LogoImage"
+                   Source="sukali_logo.png"
+                   HeightRequest="100"
+                   WidthRequest="100"
+                   Aspect="AspectFit"
+                   Opacity="0" />
+
+            <Label x:Name="WelcomeLabel"
+                   Text="Découvrez, Partagez, Vivez"
+                   TextColor="#432818"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Opacity="0" />
+        </VerticalStackLayout>
+
+        <!-- Bouton démarrer -->
+        <Button x:Name="StartButton"
+                Text="Commencer"
+                Style="{StaticResource PrimaryButton}"
+                VerticalOptions="End"
+                Margin="24,0,24,60"
+                Opacity="0"
+                Clicked="OnStartClicked" />
+    </Grid>
+</ContentPage>

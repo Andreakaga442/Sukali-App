@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.OrganizerProfilePage"
+             Title="Profil organisateur"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="16">
+
+            <!-- En-tête profil -->
+            <Frame Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="12" HorizontalOptions="Center">
+                    <Frame CornerRadius="50" WidthRequest="100" HeightRequest="100" Padding="0" BackgroundColor="{StaticResource HighlightColor}" BorderColor="{StaticResource PrimaryColor}">
+                        <Image Source="sukali_logo.png" Aspect="AspectFit" Margin="12" />
+                    </Frame>
+                    <Label Text="Assoculture" Style="{StaticResource TitleLabel}" FontSize="22" HorizontalOptions="Center" />
+                    <Label Text="Organisateur d'événements culturels" Style="{StaticResource SubtitleLabel}" FontSize="13" HorizontalOptions="Center" />
+                    <HorizontalStackLayout Spacing="16" HorizontalOptions="Center">
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="12" Style="{StaticResource BodyLabel}" FontAttributes="Bold" HorizontalOptions="Center" />
+                            <Label Text="Événements" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="1.2K" Style="{StaticResource BodyLabel}" FontAttributes="Bold" HorizontalOptions="Center" />
+                            <Label Text="Abonnés" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                    <Button Text="S'abonner" Style="{StaticResource PrimaryButton}" HorizontalOptions="Center" Clicked="OnFollowClicked" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Description -->
+            <Frame Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="À propos" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                    <Label Text="Assoculture est une organisation dédiée à la promotion de la culture camerounaise à travers des événements musicaux, artistiques et éducatifs."
+                           Style="{StaticResource BodyLabel}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Événements à venir -->
+            <Label Text="Événements à venir" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+
+            <CollectionView ItemsSource="{Binding Events}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Style="{StaticResource CardFrame}">
+                            <HorizontalStackLayout Spacing="12">
+                                <Frame WidthRequest="60" HeightRequest="60" CornerRadius="12" Padding="0" BackgroundColor="{StaticResource SurfaceColor}">
+                                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
+                                </Frame>
+                                <VerticalStackLayout Spacing="4" HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Title}" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Date, StringFormat='{0:dd MMM yyyy}'}" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                                    <Label Text="{Binding Location}" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

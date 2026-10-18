@@ -1,0 +1,123 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sukali"
+             xmlns:converters="clr-namespace:Sukali.Converters"
+             x:Class="Sukali.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Convertisseurs -->
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converters:BoolToColorConverter x:Key="BoolToColorConverter" />
+            <converters:CountToVisibilityConverter x:Key="CountToVisibilityConverter" />
+            <converters:BoolToPriceConverter x:Key="BoolToPriceConverter" />
+            <converters:BoolToDraftLabelConverter x:Key="BoolToDraftLabelConverter" />
+
+            <!-- Couleurs principales -->
+            <Color x:Key="PrimaryColor">#432818</Color>
+            <Color x:Key="SecondaryColor">#8B5E3C</Color>
+            <Color x:Key="AccentColor">#D4A574</Color>
+            <Color x:Key="HighlightColor">#FFE6A7</Color>
+            <Color x:Key="BackgroundColor">#FFFFFF</Color>
+            <Color x:Key="SurfaceColor">#F7F7F7</Color>
+            <Color x:Key="TextPrimaryColor">#432818</Color>
+            <Color x:Key="TextSecondaryColor">#8B7355</Color>
+            <Color x:Key="BorderColor">#E0D5C7</Color>
+            <Color x:Key="SuccessColor">#4CAF50</Color>
+            <Color x:Key="ErrorColor">#E53935</Color>
+            <Color x:Key="LiveColor">#FF1744</Color>
+
+            <!-- Styles de boutons -->
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+
+            <Style x:Key="SecondaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource HighlightColor}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+
+            <Style x:Key="OutlineButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="BorderColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+
+            <!-- Styles de cartes -->
+            <Style x:Key="CardFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource SurfaceColor}" />
+                <Setter Property="CornerRadius" Value="16" />
+                <Setter Property="Padding" Value="16" />
+                <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />
+                <Setter Property="HasShadow" Value="True" />
+            </Style>
+
+            <Style x:Key="CardFrameSelected" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource HighlightColor}" />
+                <Setter Property="CornerRadius" Value="16" />
+                <Setter Property="Padding" Value="16" />
+                <Setter Property="BorderColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="HasShadow" Value="True" />
+            </Style>
+
+            <!-- Styles de labels -->
+            <Style x:Key="TitleLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="SubtitleLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TextSecondaryColor}" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+
+            <Style x:Key="BodyLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+
+            <!-- Styles de champs -->
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="{StaticResource SurfaceColor}" />
+                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource TextSecondaryColor}" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="Margin" Value="0,5" />
+            </Style>
+
+            <!-- Styles de pastilles (chips) -->
+            <Style x:Key="ChipFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource SurfaceColor}" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="Padding" Value="12,6" />
+                <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />
+            </Style>
+
+            <Style x:Key="ChipFrameSelected" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource HighlightColor}" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="Padding" Value="12,6" />
+                <Setter Property="BorderColor" Value="{StaticResource PrimaryColor}" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

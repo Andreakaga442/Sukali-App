@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.CommentsPage"
+             Title="Commentaires"
+             BackgroundColor="White">
+
+    <Grid RowDefinitions="*,Auto">
+        <!-- Liste des commentaires -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="12" Padding="16">
+                <Label Text="Commentaires" Style="{StaticResource TitleLabel}" FontSize="20" Margin="0,0,0,8" />
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="8">
+                            <Frame CornerRadius="16" WidthRequest="32" HeightRequest="32" Padding="0" BackgroundColor="{StaticResource HighlightColor}">
+                                <Image Source="sukali_logo.png" Aspect="AspectFit" Margin="4" />
+                            </Frame>
+                            <Label Text="Marie Kaga" Style="{StaticResource BodyLabel}" FontAttributes="Bold" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <Label Text="Événement très intéressant, j'ai hâte d'y assister !" Style="{StaticResource BodyLabel}" />
+                        <Label Text="Il y a 2 heures" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="8">
+                            <Frame CornerRadius="16" WidthRequest="32" HeightRequest="32" Padding="0" BackgroundColor="{StaticResource HighlightColor}">
+                                <Image Source="sukali_logo.png" Aspect="AspectFit" Margin="4" />
+                            </Frame>
+                            <Label Text="Jean Dupont" Style="{StaticResource BodyLabel}" FontAttributes="Bold" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <Label Text="Quelqu'un sait si on peut réserver sur place ?" Style="{StaticResource BodyLabel}" />
+                        <Label Text="Il y a 5 heures" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="8">
+                            <Frame CornerRadius="16" WidthRequest="32" HeightRequest="32" Padding="0" BackgroundColor="{StaticResource HighlightColor}">
+                                <Image Source="sukali_logo.png" Aspect="AspectFit" Margin="4" />
+                            </Frame>
+                            <Label Text="Sophie Martin" Style="{StaticResource BodyLabel}" FontAttributes="Bold" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <Label Text="Super événement, je recommande vivement !" Style="{StaticResource BodyLabel}" />
+                        <Label Text="Hier" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Zone de saisie -->
+        <Frame Grid.Row="1" BackgroundColor="{StaticResource SurfaceColor}" CornerRadius="0" Padding="12">
+            <HorizontalStackLayout Spacing="8">
+                <Entry Placeholder="Ajouter un commentaire..." BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
+                <Button Text="Envoyer" Style="{StaticResource PrimaryButton}" HeightRequest="40" Clicked="OnSendClicked" />
+            </HorizontalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

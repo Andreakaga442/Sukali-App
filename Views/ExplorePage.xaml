@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.ExplorePage"
+             Title="Explorer"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="16">
+
+            <!-- Barre de recherche -->
+            <Frame BackgroundColor="{StaticResource SurfaceColor}" CornerRadius="12" Padding="12,8">
+                <HorizontalStackLayout Spacing="8">
+                    <Image Source="search_icon.png" WidthRequest="16" HeightRequest="16" VerticalOptions="Center" />
+                    <Entry Placeholder="Rechercher un événement..." BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!-- Catégories -->
+            <CollectionView HeightRequest="40" ItemsSource="{Binding Categories}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Style="{StaticResource ChipFrame}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCategoryTapped" />
+                            </Frame.GestureRecognizers>
+                            <HorizontalStackLayout Spacing="4">
+                                <Label Text="{Binding Name}" FontSize="13" />
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Filtres -->
+            <HorizontalStackLayout Spacing="8">
+                <Frame Style="{StaticResource ChipFrame}">
+                    <Label Text="Date" FontSize="12" />
+                </Frame>
+                <Frame Style="{StaticResource ChipFrame}">
+                    <Label Text="Prix" FontSize="12" />
+                </Frame>
+                <Frame Style="{StaticResource ChipFrame}">
+                    <Label Text="Lieu" FontSize="12" />
+                </Frame>
+            </HorizontalStackLayout>
+
+            <!-- Résultats -->
+            <Label Text="Événements trouvés" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+
+            <CollectionView ItemsSource="{Binding Events}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Style="{StaticResource CardFrame}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnEventTapped" />
+                            </Frame.GestureRecognizers>
+                            <HorizontalStackLayout Spacing="12">
+                                <Frame WidthRequest="80" HeightRequest="80" CornerRadius="12" Padding="0" BackgroundColor="{StaticResource SurfaceColor}">
+                                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
+                                </Frame>
+                                <VerticalStackLayout Spacing="4" HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Category}" FontSize="11" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Title}" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Date, StringFormat='{0:dd MMM} • {0:HH:mm}'}" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                                    <Label Text="{Binding Location}" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="{Binding IsFree, Converter={StaticResource BoolToPriceConverter}}" FontSize="12" TextColor="{StaticResource SuccessColor}" FontAttributes="Bold" />
+                                    <Image Source="heart_icon.png" WidthRequest="16" HeightRequest="16" HorizontalOptions="End" />
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.ReservationConfirmationPage"
+             Title="Confirmation"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="24">
+
+            <!-- Icône de succès -->
+            <Frame BackgroundColor="{StaticResource HighlightColor}"
+                   CornerRadius="50"
+                   WidthRequest="100"
+                   HeightRequest="100"
+                   HorizontalOptions="Center"
+                   Margin="0,40,0,0">
+                <Label Text="✓" FontSize="48" TextColor="{StaticResource PrimaryColor}" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Frame>
+
+            <!-- Message -->
+            <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                <Label Text="Réservation confirmée !" Style="{StaticResource TitleLabel}" HorizontalOptions="Center" />
+                <Label Text="Votre place a été réservée avec succès"
+                       Style="{StaticResource SubtitleLabel}"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Détails -->
+            <Frame Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Détails de la réservation" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                    <BoxView HeightRequest="1" BackgroundColor="{StaticResource BorderColor}" />
+                    <HorizontalStackLayout Spacing="12">
+                        <Image Source="calendar_icon.png" WidthRequest="20" HeightRequest="20" />
+                        <VerticalStackLayout>
+                            <Label Text="Date" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                            <Label Text="Samedi 18 Octobre 2026" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="12">
+                        <Image Source="clock_icon.png" WidthRequest="20" HeightRequest="20" />
+                        <VerticalStackLayout>
+                            <Label Text="Heure" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                            <Label Text="18:00" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="12">
+                        <Image Source="location_icon.png" WidthRequest="20" HeightRequest="20" />
+                        <VerticalStackLayout>
+                            <Label Text="Lieu" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                            <Label Text="Palais des Sports de Douala" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="12">
+                        <Image Source="ticket_icon.png" WidthRequest="20" HeightRequest="20" />
+                        <VerticalStackLayout>
+                            <Label Text="Places" FontSize="11" TextColor="{StaticResource TextSecondaryColor}" />
+                            <Label Text="1 place" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Boutons -->
+            <Button Text="Voir mes réservations"
+                    Style="{StaticResource PrimaryButton}"
+                    Clicked="OnViewReservationsClicked" />
+
+            <Button Text="Retour à l'accueil"
+                    Style="{StaticResource OutlineButton}"
+                    Clicked="OnBackToHomeClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

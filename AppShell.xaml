@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Sukali.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Sukali"
+    xmlns:views="clr-namespace:Sukali.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Sukali">
+
+    <!-- Routes -->
+    <ShellContent Route="SplashScreenPage1"
+                  ContentTemplate="{DataTemplate views:SplashScreenPage1}" />
+
+    <ShellContent Route="SplashScreenPage2"
+                  ContentTemplate="{DataTemplate views:SplashScreenPage2}" />
+
+    <ShellContent Route="LoginPage"
+                  ContentTemplate="{DataTemplate views:LoginPage}" />
+
+    <ShellContent Route="OrganizerAuthPage"
+                  ContentTemplate="{DataTemplate views:OrganizerAuthPage}" />
+
+    <ShellContent Route="ProfilePage1"
+                  ContentTemplate="{DataTemplate views:ProfilePage1}" />
+
+    <ShellContent Route="ProfilePage2"
+                  ContentTemplate="{DataTemplate views:ProfilePage2}" />
+
+    <ShellContent Route="ProfilePage3"
+                  ContentTemplate="{DataTemplate views:ProfilePage3}" />
+
+    <ShellContent Route="MainTabs"
+                  ContentTemplate="{DataTemplate views:MainTabsPage}" />
+
+    <ShellContent Route="EventDetailPage"
+                  ContentTemplate="{DataTemplate views:EventDetailPage}" />
+
+    <ShellContent Route="ReservationConfirmationPage"
+                  ContentTemplate="{DataTemplate views:ReservationConfirmationPage}" />
+
+    <ShellContent Route="CommentsPage"
+                  ContentTemplate="{DataTemplate views:CommentsPage}" />
+
+    <ShellContent Route="OrganizerProfilePage"
+                  ContentTemplate="{DataTemplate views:OrganizerProfilePage}" />
+
+    <ShellContent Route="NotificationsPage"
+                  ContentTemplate="{DataTemplate views:NotificationsPage}" />
+
+    <ShellContent Route="SettingsPage"
+                  ContentTemplate="{DataTemplate views:SettingsPage}" />
+
+</Shell>

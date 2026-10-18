@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.ProfilePage1"
+             Title="Parle-moi de toi"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="24">
+
+            <!-- Indicateur de progression -->
+            <Grid ColumnDefinitions="*,*,*" Margin="0,20,0,0">
+                <Frame Grid.Column="0" BackgroundColor="{StaticResource PrimaryColor}" CornerRadius="4" HeightRequest="4" Margin="0,0,4,0" />
+                <Frame Grid.Column="1" BackgroundColor="{StaticResource BorderColor}" CornerRadius="4" HeightRequest="4" Margin="4,0" />
+                <Frame Grid.Column="2" BackgroundColor="{StaticResource BorderColor}" CornerRadius="4" HeightRequest="4" Margin="4,0,0,0" />
+            </Grid>
+
+            <!-- Titre -->
+            <VerticalStackLayout Spacing="8" Margin="0,20,0,0">
+                <Label Text="Parle-moi de toi" Style="{StaticResource TitleLabel}" />
+                <Label Text="Quel est ton profil ?" Style="{StaticResource SubtitleLabel}" />
+            </VerticalStackLayout>
+
+            <!-- Choix du profil -->
+            <VerticalStackLayout Spacing="12" x:Name="ProfileTypeLayout">
+                <Frame Style="{StaticResource CardFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnProfileTypeTapped" />
+                    </Frame.GestureRecognizers>
+                    <HorizontalStackLayout Spacing="12">
+                        <Image Source="student_icon.png" WidthRequest="28" HeightRequest="28" />
+                        <VerticalStackLayout>
+                            <Label Text="Étudiant" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                            <Label Text="Tu es en formation" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnProfileTypeTapped" />
+                    </Frame.GestureRecognizers>
+                    <HorizontalStackLayout Spacing="12">
+                        <Image Source="professional_icon.png" WidthRequest="28" HeightRequest="28" />
+                        <VerticalStackLayout>
+                            <Label Text="Professionnel" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                            <Label Text="Tu es actif dans le monde du travail" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnProfileTypeTapped" />
+                    </Frame.GestureRecognizers>
+                    <HorizontalStackLayout Spacing="12">
+                        <Image Source="entrepreneur_icon.png" WidthRequest="28" HeightRequest="28" />
+                        <VerticalStackLayout>
+                            <Label Text="Entrepreneur" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                            <Label Text="Tu as un projet ou une entreprise" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnProfileTypeTapped" />
+                    </Frame.GestureRecognizers>
+                    <HorizontalStackLayout Spacing="12">
+                        <Image Source="organizer_icon.png" WidthRequest="28" HeightRequest="28" />
+                        <VerticalStackLayout>
+                            <Label Text="Organisateur" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                            <Label Text="Tu organises des événements" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnProfileTypeTapped" />
+                    </Frame.GestureRecognizers>
+                    <HorizontalStackLayout Spacing="12">
+                        <Image Source="curious_icon.png" WidthRequest="28" HeightRequest="28" />
+                        <VerticalStackLayout>
+                            <Label Text="Curieux" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                            <Label Text="Tu veux découvrir ce qui t'entoure" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Domaine -->
+            <VerticalStackLayout Spacing="8" Margin="0,16,0,0">
+                <Label Text="Ton domaine" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                <Entry Placeholder="Ex: Informatique, Commerce, Art..."
+                       Style="{StaticResource EntryStyle}" />
+            </VerticalStackLayout>
+
+            <!-- Bouton continuer -->
+            <Button Text="Continuer"
+                    Style="{StaticResource PrimaryButton}"
+                    Margin="0,24,0,0"
+                    Clicked="OnContinueClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

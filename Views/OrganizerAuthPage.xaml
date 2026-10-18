@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.OrganizerAuthPage"
+             Title="Espace Organisateur"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="24">
+
+            <!-- En-tête -->
+            <VerticalStackLayout Spacing="8" Margin="0,40,0,0" HorizontalOptions="Center">
+                <Image Source="sukali_logo.png" HeightRequest="80" WidthRequest="80" Aspect="AspectFit" HorizontalOptions="Center" />
+                <Label Text="Espace Organisateur" Style="{StaticResource TitleLabel}" FontSize="24" HorizontalOptions="Center" />
+                <Label Text="Créez votre compte organisateur pour publier et gérer vos événements"
+                       Style="{StaticResource SubtitleLabel}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+            <!-- Type de compte -->
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Type d'organisation" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="12">
+                            <Label Text="Entreprise" Style="{StaticResource BodyLabel}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                            <Switch IsToggled="False" ThumbColor="{StaticResource PrimaryColor}" />
+                        </HorizontalStackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="{StaticResource BorderColor}" />
+                        <HorizontalStackLayout Spacing="12">
+                            <Label Text="Association" Style="{StaticResource BodyLabel}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                            <Switch IsToggled="False" ThumbColor="{StaticResource PrimaryColor}" />
+                        </HorizontalStackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="{StaticResource BorderColor}" />
+                        <HorizontalStackLayout Spacing="12">
+                            <Label Text="Individuel" Style="{StaticResource BodyLabel}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                            <Switch IsToggled="False" ThumbColor="{StaticResource PrimaryColor}" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Informations organisation -->
+            <VerticalStackLayout Spacing="12">
+                <Label Text="Informations de l'organisation" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+
+                <Entry Placeholder="Nom de l'organisation" Style="{StaticResource EntryStyle}" />
+
+                <Entry Placeholder="Numéro d'enregistrement" Style="{StaticResource EntryStyle}" />
+
+                <Entry Placeholder="Adresse e-mail professionnelle" Style="{StaticResource EntryStyle}" Keyboard="Email" />
+
+                <Entry Placeholder="Téléphone" Style="{StaticResource EntryStyle}" Keyboard="Telephone" />
+
+                <Entry Placeholder="Site web (optionnel)" Style="{StaticResource EntryStyle}" Keyboard="Url" />
+            </VerticalStackLayout>
+
+            <!-- Documents -->
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Documents requis" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Pièce d'identité du responsable" Style="{StaticResource BodyLabel}" FontSize="13" />
+                        <Button Text="Télécharger" Style="{StaticResource OutlineButton}" HeightRequest="40" FontSize="12" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Justificatif d'enregistrement" Style="{StaticResource BodyLabel}" FontSize="13" />
+                        <Button Text="Télécharger" Style="{StaticResource OutlineButton}" HeightRequest="40" FontSize="12" />
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Mot de passe -->
+            <VerticalStackLayout Spacing="12">
+                <Label Text="Sécurité du compte" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+
+                <Entry Placeholder="Mot de passe" Style="{StaticResource EntryStyle}" IsPassword="True" />
+
+                <Entry Placeholder="Confirmer le mot de passe" Style="{StaticResource EntryStyle}" IsPassword="True" />
+            </VerticalStackLayout>
+
+            <!-- Bouton création -->
+            <Button Text="Créer mon compte organisateur"
+                    Style="{StaticResource PrimaryButton}"
+                    Margin="0,16,0,0"
+                    Clicked="OnCreateAccountClicked" />
+
+            <!-- Lien connexion -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+                <Label Text="Déjà un compte ?" Style="{StaticResource SubtitleLabel}" FontSize="13" />
+                <Label Text="Se connecter" Style="{StaticResource BodyLabel}" FontAttributes="Bold" TextColor="{StaticResource PrimaryColor}" FontSize="13" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

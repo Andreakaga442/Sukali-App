@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.LivePage"
+             Title="Live"
+             BackgroundColor="#1A1A2E">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="16">
+
+            <!-- En-tête -->
+            <HorizontalStackLayout Spacing="12">
+                <Label Text="Au cœur du moment" TextColor="White" FontSize="22" FontAttributes="Bold" HorizontalOptions="StartAndExpand" />
+                <Frame BackgroundColor="#FF1744" CornerRadius="12" Padding="8,4">
+                    <Label Text="EN DIRECT" TextColor="White" FontSize="11" FontAttributes="Bold" />
+                </Frame>
+            </HorizontalStackLayout>
+
+            <!-- Bascule En direct / Récap -->
+            <Grid ColumnDefinitions="*,*">
+                <Frame Grid.Column="0" BackgroundColor="{StaticResource HighlightColor}" CornerRadius="12" Padding="12" Margin="0,0,4,0">
+                    <Label Text="En direct" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" HorizontalOptions="Center" />
+                </Frame>
+                <Frame Grid.Column="1" BackgroundColor="#2D2D44" CornerRadius="12" Padding="12" Margin="4,0,0,0">
+                    <Label Text="Récap" TextColor="White" HorizontalOptions="Center" />
+                </Frame>
+            </Grid>
+
+            <!-- Lives en cours -->
+            <CollectionView ItemsSource="{Binding LiveEvents}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#2D2D44" CornerRadius="16" Padding="0">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnLiveTapped" />
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout>
+                                <!-- Thumbnail -->
+                                <Frame HeightRequest="180" CornerRadius="16" Padding="0" BackgroundColor="#3D3D5C">
+                                    <Grid>
+                                        <Image Source="{Binding ThumbnailUrl}" Aspect="AspectFill" />
+                                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Label Text="{Binding ViewersCount, StringFormat='{0} spectateurs'}" TextColor="White" FontSize="12" HorizontalOptions="Center" />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+
+                                <VerticalStackLayout Padding="16" Spacing="8">
+                                    <Label Text="{Binding Title}" TextColor="White" FontAttributes="Bold" FontSize="16" />
+                                    <HorizontalStackLayout Spacing="8">
+                                        <Label Text="{Binding Organizer}" TextColor="#B0B0C0" FontSize="13" />
+                                        <Label Text="•" TextColor="#B0B0C0" />
+                                        <Label Text="{Binding Location}" TextColor="#B0B0C0" FontSize="13" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sukali.Views.CreatePage"
+             Title="Créer"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="16">
+
+            <!-- En-tête -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Créer un événement" Style="{StaticResource TitleLabel}" FontSize="22" />
+                <Label Text="Partage ta communauté avec le monde"
+                       Style="{StaticResource SubtitleLabel}" FontSize="14" />
+            </VerticalStackLayout>
+
+            <!-- Type d'événement -->
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Type d'événement" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                <HorizontalStackLayout Spacing="12">
+                    <Frame BackgroundColor="{StaticResource HighlightColor}" CornerRadius="12" Padding="16" BorderColor="{StaticResource PrimaryColor}">
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="Gratuit" FontSize="12" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                    </Frame>
+                    <Frame BackgroundColor="{StaticResource SurfaceColor}" CornerRadius="12" Padding="16">
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="Payant" FontSize="12" TextColor="{StaticResource TextSecondaryColor}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Formulaire -->
+            <VerticalStackLayout Spacing="12">
+                <Entry Placeholder="Titre de l'événement" Style="{StaticResource EntryStyle}" />
+
+                <Entry Placeholder="Description" Style="{StaticResource EntryStyle}" HeightRequest="100" />
+
+                <Grid ColumnDefinitions="*,*">
+                    <Entry Grid.Column="0" Placeholder="Date" Style="{StaticResource EntryStyle}" Margin="0,0,6,0" />
+                    <Entry Grid.Column="1" Placeholder="Heure" Style="{StaticResource EntryStyle}" Margin="6,0,0,0" />
+                </Grid>
+
+                <Entry Placeholder="Lieu" Style="{StaticResource EntryStyle}" />
+
+                <Grid ColumnDefinitions="*,*">
+                    <Entry Grid.Column="0" Placeholder="Prix (FCFA)" Style="{StaticResource EntryStyle}" Margin="0,0,6,0" Keyboard="Numeric" />
+                    <Entry Grid.Column="1" Placeholder="Capacité" Style="{StaticResource EntryStyle}" Margin="6,0,0,0" Keyboard="Numeric" />
+                </Grid>
+
+                <!-- Catégories -->
+                <Label Text="Catégories" Style="{StaticResource BodyLabel}" FontAttributes="Bold" />
+                <FlexLayout Wrap="Wrap" JustifyContent="Start">
+                    <Frame Style="{StaticResource ChipFrame}" Margin="0,0,8,8">
+                        <Label Text="Musique" FontSize="12" />
+                    </Frame>
+                    <Frame Style="{StaticResource ChipFrame}" Margin="0,0,8,8">
+                        <Label Text="Ateliers" FontSize="12" />
+                    </Frame>
+                    <Frame Style="{StaticResource ChipFrame}" Margin="0,0,8,8">
+                        <Label Text="Conférences" FontSize="12" />
+                    </Frame>
+                    <Frame Style="{StaticResource ChipFrame}" Margin="0,0,8,8">
+                        <Label Text="Sport" FontSize="12" />
+                    </Frame>
+                </FlexLayout>
+
+                <!-- Réservation -->
+                <HorizontalStackLayout Spacing="12">
+                    <Label Text="Réservation requise" Style="{StaticResource BodyLabel}" VerticalOptions="Center" />
+                    <Switch IsToggled="True" ThumbColor="{StaticResource PrimaryColor}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Boutons -->
+            <Grid ColumnDefinitions="*,*" Margin="0,16,0,0">
+                <Button Grid.Column="0"
+                        Text="Brouillon"
+                        Style="{StaticResource OutlineButton}"
+                        Margin="0,0,8,0"
+                        Clicked="OnDraftClicked" />
+                <Button Grid.Column="1"
+                        Text="Publier"
+                        Style="{StaticResource PrimaryButton}"
+                        Margin="8,0,0,0"
+                        Clicked="OnPublishClicked" />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
